@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>공통 왼쪽 사이드 바</title>
@@ -8,7 +8,7 @@
 <aside class="main-sidebar sidebar-dark-info elevation-4">
   <!--/* Brand Logo */-->
   <a id="admin-logo-link" class="brand-link" th:href="@{/}">
-    <img src="/images/fastcampus-logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="/images/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">게시판 서비스 관리자</span>
   </a>
 
@@ -17,7 +17,7 @@
     <!--/* Sidebar user panel (optional) */-->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <a id="user-profile" class="d-block" th:href="@{#}">Uno</a>
+        <a id="user-profile" class="d-block" th:href="@{#}">Dongmin</a>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
         <!--/* Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library */-->
         <li class="nav-item menu-open">
-          <a id="management-category" class="nav-link" th:classappend="${#request.requestURI.startsWith('/management')} ? 'active'">
+          <a id="management-category" class="nav-link">
             <p>
               관리
               <i class="right fas fa-angle-left"></i>
@@ -47,25 +47,19 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a id="article-management" class="nav-link"
-                 th:href="@{/management/articles}"
-                 th:classappend="${#request.requestURI.equals('/management/articles')} ? 'active'">
+              <a id="article-management" class="nav-link" th:href="@{/management/articles}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>게시물 관리</p>
               </a>
             </li>
             <li class="nav-item">
-              <a id="article-comment-management" class="nav-link"
-                 th:href="@{/management/article-comments}"
-                 th:classappend="${#request.requestURI.equals('/management/article-comments')} ? 'active'">
+              <a id="article-comment-management" class="nav-link" th:href="@{/management/article-comments}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>댓글 관리</p>
               </a>
             </li>
             <li class="nav-item">
-              <a id="user-account-management" class="nav-link"
-                 th:href="@{/management/user-accounts}"
-                 th:classappend="${#request.requestURI.equals('/management/user-accounts')} ? 'active'">
+              <a id="user-account-management" class="nav-link" th:href="@{/management/user-accounts}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>회원 관리</p>
               </a>
@@ -73,7 +67,7 @@
           </ul>
         </li>
         <li class="nav-item menu-open">
-          <a id="admin-category" class="nav-link" th:classappend="${#request.requestURI.startsWith('/admin')} ? 'active'">
+          <a id="admin-category" class="nav-link">
             <p>
               어드민 항목
               <i class="right fas fa-angle-left"></i>
@@ -81,9 +75,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a id="admin-members" class="nav-link"
-                 th:href="@{/admin/members}"
-                 th:classappend="${#request.requestURI.equals('/admin/members')} ? 'active'">
+              <a id="admin-members" class="nav-link" th:href="@{/admin/members}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>어드민 계정</p>
               </a>
