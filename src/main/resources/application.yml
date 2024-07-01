@@ -48,3 +48,4 @@ logging:
   level:
     com.fastcampus.projectboardamdin: debug
     org.springframework.web.servlet: debug
+    org.springframework.web.client.RestTemplate: debug # RestTemplate log 설정
