@@ -1,7 +1,7 @@
 package com.fastcampus.projectboardamdin.dto.security;
 
 import com.fastcampus.projectboardamdin.domain.constant.RoleType;
-import com.fastcampus.projectboardamdin.dto.UserAccountDto;
+import com.fastcampus.projectboardamdin.dto.AdminAccountDto;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -44,7 +44,7 @@ public class BoardAdminPrincipal implements UserDetails, OAuth2User {
         );
     }
 
-    public static BoardAdminPrincipal from(UserAccountDto dto) {
+    public static BoardAdminPrincipal from(AdminAccountDto dto) {
         return BoardAdminPrincipal.of(
                 dto.getUserId(),
                 dto.getUserPassword(),
@@ -55,8 +55,8 @@ public class BoardAdminPrincipal implements UserDetails, OAuth2User {
         );
     }
 
-    public UserAccountDto toDto() {
-        return UserAccountDto.of(
+    public AdminAccountDto toDto() {
+        return AdminAccountDto.of(
                 username,
                 password,
                 authorities.stream()
