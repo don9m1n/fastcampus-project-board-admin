@@ -14,7 +14,6 @@ import java.util.Set;
 public class UserAccountDto {
 
     private String userId;
-    private Set<RoleType> roleTypes;
     private String email;
     private String nickname;
     private String memo;
@@ -23,14 +22,14 @@ public class UserAccountDto {
     private LocalDateTime modifiedAt;
     private String modifiedBy;
 
-    public static UserAccountDto of(String userId, Set<RoleType> roleTypes, String email, String nickname, String memo) {
-        return UserAccountDto.of(userId, roleTypes, email, nickname, memo, null, null, null, null);
+    public static UserAccountDto of(String userId, String email, String nickname, String memo) {
+        return UserAccountDto.of(userId, email, nickname, memo, null, null, null, null);
     }
 
     public static UserAccountDto of(
-            String userId, Set<RoleType> roleTypes, String email,
+            String userId, String email,
             String nickname, String memo, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-        return new UserAccountDto(userId, roleTypes, email, nickname, memo, createdAt, createdBy, modifiedAt, modifiedBy);
+        return new UserAccountDto(userId, email, nickname, memo, createdAt, createdBy, modifiedAt, modifiedBy);
     }
 
 }
