@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin/members")
 @RequiredArgsConstructor
-public class AdminUserAccountController {
+public class AdminAccountController {
 
     @GetMapping
     public String members(
