@@ -19,7 +19,7 @@ import java.util.Set;
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserAccount extends AuditingFields {
+public class AdminAccount extends AuditingFields {
 
     @Id
     @Column(nullable = false, length = 50)
@@ -45,7 +45,7 @@ public class UserAccount extends AuditingFields {
     private String memo;
 
     @Builder
-    private UserAccount(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo, String createdBy) {
+    private AdminAccount(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo, String createdBy) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.roleTypes = roleTypes;
@@ -56,12 +56,12 @@ public class UserAccount extends AuditingFields {
         this.modifiedBy = createdBy;
     }
 
-    public static UserAccount of(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo) {
-        return UserAccount.of(userId, userPassword, roleTypes, email, nickname, memo, null);
+    public static AdminAccount of(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo) {
+        return AdminAccount.of(userId, userPassword, roleTypes, email, nickname, memo, null);
     }
 
-    public static UserAccount of(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo, String createdBy) {
-        return UserAccount.builder()
+    public static AdminAccount of(String userId, String userPassword, Set<RoleType> roleTypes, String email, String nickname, String memo, String createdBy) {
+        return AdminAccount.builder()
                 .userId(userId)
                 .userPassword(userPassword)
                 .roleTypes(roleTypes)
@@ -87,8 +87,8 @@ public class UserAccount extends AuditingFields {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserAccount userAccount)) return false;
-        return getUserId() != null && getUserId().equals(userAccount.getUserId());
+        if (!(o instanceof AdminAccount adminAccount)) return false;
+        return getUserId() != null && getUserId().equals(adminAccount.getUserId());
     }
 
     @Override
