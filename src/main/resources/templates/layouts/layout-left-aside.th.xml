@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<thlogic>
+  <attr sel="#admin-logo-link" th:href="@{/}" />
+  <attr sel="#user-profile" th:href="@{#}" />
+  <attr sel="#management-category" />
+  <attr sel="#article-management" th:href="@{/management/articles}" />
+  <attr sel="#article-comment-management" th:href="@{/management/article-comments}" />
+  <attr sel="#user-account-management" th:href="@{/management/user-accounts}" />
+  <attr sel="#admin-category" />
+  <attr sel="#admin-members" th:href="@{/admin/members}" />
+</thlogic>
