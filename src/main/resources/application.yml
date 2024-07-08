@@ -2,6 +2,7 @@ server:
   port: 8081
 
 spring:
+  thymeleaf3.decoupled-logic: true
   devtools:
     livereload:
       port: 35730
