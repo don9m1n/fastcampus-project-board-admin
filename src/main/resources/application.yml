@@ -22,7 +22,7 @@ spring:
         format_sql: true
         default_batch_fetch_size: 100 # bulk select 를 위한 설정 (in)
 
-  sql.init.mode: always
+  sql.init.mode: never
 
   security:
     oauth2:
