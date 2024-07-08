@@ -25,24 +25,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td><a data-toggle="modal" data-target="#layout-modal">새 글</a></td>
-                <td>Uno</td>
-                <td><time datetime="2022-01-01T00:00:00">2022-01-01 00:00:00</time></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><a data-toggle="modal" data-target="#layout-modal">아무글</a></td>
-                <td>Uno</td>
-                <td><time datetime="2022-01-02T00:00:00">2022-01-02 00:00:00</time></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><a data-toggle="modal" data-target="#layout-modal">스프링 부트 블로그 정리</a></td>
-                <td>Uno</td>
-                <td><time datetime="2022-01-03T00:00:00">2022-01-03 00:00:00</time></td>
-            </tr>
+                <tr th:each="article : ${articles}">
+                    <td th:text="${article.id}"></td>
+                    <td>
+                        <a th:text="${article.title}" th:href="@{#}" data-toggle="modal" data-target="#layout-modal" th:data-id="${article.id}"></a>
+                    </td>
+                    <td th:text="${article.userAccount.nickname}"></td>
+                    <td><time th:datetime="${article.createdAt}" th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></time></td>
+                </tr>
             </tbody>
             <tfoot>
             <tr>

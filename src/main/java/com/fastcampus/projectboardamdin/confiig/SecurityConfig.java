@@ -41,7 +41,7 @@ public class SecurityConfig {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll() // 정적 리소스 접근 허용
                         .requestMatchers(HttpMethod.POST, "/**").hasAnyRole(rolesAboveManager) // 일반 유저는 POST 요청 불가능
                         .requestMatchers(HttpMethod.DELETE, "/**").hasAnyRole(rolesAboveManager) // 일반 유저는 DELETE 요청 불가능
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll() // TODO: 인증 기능 구현할 때 변경 예정
                 )
                 .formLogin(withDefaults())
                 .logout(logout -> logout.logoutSuccessUrl("/"))
